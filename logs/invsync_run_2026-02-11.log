@@ -1,0 +1,98 @@
+
+####################################################################################################
+[2026-02-10T19:20:27Z] InvSync Runner START
+mode=full as_of_date=2026-02-11
+vendor_dir=D:\app\InvSync\Vendor_Files
+only=['DK']
+####################################################################################################
+
+====================================================================================================
+[2026-02-10T19:20:27Z] START DK: Ingest Dolce + Katana (WTD wheel offer)
+CMD: C:\Python313\python.exe D:\app\InvSync\ingest_DOL_KAT_inventory.py --filename ~$WTDwheelofferFebruary_10_2026.xlsx
+D:\app\InvSync\ingest_DOL_KAT_inventory.py:6: SyntaxWarning: invalid escape sequence '\I'
+  - The script MUST pick the file from: D:\app\InvSync\Vendor_Files
+Traceback (most recent call last):
+  File "D:\app\InvSync\ingest_DOL_KAT_inventory.py", line 519, in <module>
+    main()
+    ~~~~^^
+  File "D:\app\InvSync\ingest_DOL_KAT_inventory.py", line 337, in main
+    file_hash = sha256_file(file_path)
+  File "D:\app\InvSync\ingest_DOL_KAT_inventory.py", line 64, in sha256_file
+    with open(path, "rb") as f:
+         ~~~~^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'D:\\app\\InvSync\\Vendor_Files\\~$WTDwheelofferFebruary_10_2026.xlsx'
+[2026-02-10T19:20:28Z] END DK: Ingest Dolce + Katana (WTD wheel offer) rc=1 seconds=1.31
+====================================================================================================
+
+[2026-02-10T19:20:28Z] InvSync Runner END ok=0 failed=1 total_seconds=1.31
+
+####################################################################################################
+[2026-02-10T19:21:08Z] InvSync Runner START
+mode=full as_of_date=2026-02-11
+vendor_dir=D:\app\InvSync\Vendor_Files
+only=['DK']
+####################################################################################################
+
+====================================================================================================
+[2026-02-10T19:21:08Z] START DK: Ingest Dolce + Katana (WTD wheel offer)
+CMD: C:\Python313\python.exe D:\app\InvSync\ingest_DOL_KAT_inventory.py --filename WTDwheelofferFebruary_10_2026.xlsx
+D:\app\InvSync\ingest_DOL_KAT_inventory.py:6: SyntaxWarning: invalid escape sequence '\I'
+  - The script MUST pick the file from: D:\app\InvSync\Vendor_Files
+Ingestion complete
+  File:   WTDwheelofferFebruary_10_2026.xlsx
+  Hash:   081902c2ad974df448527fe36fd297a8e484c3d931614ef3ba580d8cc1f4ff86
+  as_of:  2026-02-10
+  Sheet:  Brands
+  Marker rows detected (non-column-A images): [3, 4, 786, 1271, 1512]
+  Brand marker mapping used: {786: 'DOL', 1271: 'DOL', 1512: 'KAT'}
+  DOL: raw=641, normalized=641
+  KAT: raw=283, normalized=283
+[2026-02-10T19:21:17Z] END DK: Ingest Dolce + Katana (WTD wheel offer) rc=0 seconds=8.30
+====================================================================================================
+
+====================================================================================================
+[2026-02-10T19:21:17Z] START Build Daily Final (DOL)
+CMD: C:\Python313\python.exe D:\app\InvSync\build_inventory_daily_final.py --as-of-date 2026-02-11 --vendor-code DOL
+inventory_daily_final built successfully
+  scope: vendor=DOL
+  as_of_date: 2026-02-11
+  rows written this run (approx): 0
+  total rows in inventory_daily_final for date: 0
+[2026-02-10T19:21:20Z] END Build Daily Final (DOL) rc=0 seconds=3.63
+====================================================================================================
+
+====================================================================================================
+[2026-02-10T19:21:20Z] START Build Daily Final (KAT)
+CMD: C:\Python313\python.exe D:\app\InvSync\build_inventory_daily_final.py --as-of-date 2026-02-11 --vendor-code KAT
+inventory_daily_final built successfully
+  scope: vendor=KAT
+  as_of_date: 2026-02-11
+  rows written this run (approx): 0
+  total rows in inventory_daily_final for date: 0
+[2026-02-10T19:21:25Z] END Build Daily Final (KAT) rc=0 seconds=4.54
+====================================================================================================
+
+====================================================================================================
+[2026-02-10T19:21:25Z] START Build Woo Variation Map
+CMD: C:\Python313\python.exe D:\app\InvSync\build_woo_variation_map.py --as-of-date 2026-02-11
+ No SKUs need mapping.
+[2026-02-10T19:21:29Z] END Build Woo Variation Map rc=0 seconds=3.88
+====================================================================================================
+
+====================================================================================================
+[2026-02-10T19:21:29Z] START Woo Stock Batch Update
+CMD: C:\Python313\python.exe D:\app\InvSync\woo_variation_stock_batch_update.py --as-of-date 2026-02-11
+ Run created: d7641c7c-84ea-4eb2-bd0f-f89c39293621
+   as_of_date: 2026-02-11
+   total mapped candidates: 0
+   queued to update (changed-only): 0
+   skipped unchanged: 0
+   unmapped (not found on site): 0
+   Woo API: https://staging2.sdtwdirectwholesale.com/wp-json/wc/v3
+   batch_size: 50
+   WCMLIM enabled: True | location_id: 2096 | update_core_stock: True
+ Nothing to update (all SKUs unchanged or none mapped).
+[2026-02-10T19:21:39Z] END Woo Stock Batch Update rc=0 seconds=9.91
+====================================================================================================
+
+[2026-02-10T19:21:39Z] InvSync Runner END ok=5 failed=0 total_seconds=30.27

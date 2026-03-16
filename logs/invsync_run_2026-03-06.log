@@ -1,0 +1,201 @@
+
+####################################################################################################
+[2026-03-05T19:31:16Z] InvSync Runner START
+mode=full as_of_date=2026-03-06
+vendor_dir=/opt/invsync/Vendor_Files
+only=['LOF', 'MRW', 'XXR']
+####################################################################################################
+
+====================================================================================================
+[2026-03-05T19:31:16Z] START MRW: Ingest MRW
+CMD: /opt/invsync/.venv/bin/python /opt/invsync/ingest_mrw_inventory.py --file /opt/invsync/Vendor_Files/MRW Inventory Report.xlsx --vendor-code MRW --vendor-name Method Race Wheels --as-of-date 2026-03-06
+ Ingestion complete
+   Vendor: MRW (vendor_id inserted/updated)
+   File:   MRW Inventory Report.xlsx
+   Hash:   598ac343efa642e204fb0121b78b1a0174e9163f252ecd52ec91c06461a2e167
+   as_of:  2026-03-06
+   Rows:   raw=1642, normalized=1642
+[2026-03-05T19:31:18Z] END MRW: Ingest MRW rc=0 seconds=2.67
+====================================================================================================
+
+====================================================================================================
+[2026-03-05T19:31:18Z] START LOF: Ingest Lock Off-Road
+CMD: /opt/invsync/.venv/bin/python /opt/invsync/ingest_lor_inventory.py --file /opt/invsync/Vendor_Files/LockOffroadWheelsInventory.xlsx --vendor-code LOF --vendor-name Lock Off-Road --as-of-date 2026-03-06
+/opt/invsync/ingest_lor_inventory.py:6: SyntaxWarning: invalid escape sequence '\I'
+  D:\app\InvSync\Vendor_Files\LockOffroadWheelsInventory.xlsx
+ Ingestion complete
+   Vendor: LOF (Lock Off-Road)
+   File:   LockOffroadWheelsInventory.xlsx
+   Hash:   e9c5a34de3e28dab664aad58c3a59ca45223f5b467a735d111ded55312cba4f5
+   as_of:  2026-03-06
+   Rows:   raw=1223, normalized=1223
+[2026-03-05T19:31:21Z] END LOF: Ingest Lock Off-Road rc=0 seconds=2.26
+====================================================================================================
+
+====================================================================================================
+[2026-03-05T19:31:21Z] START XXR: Ingest XXR
+CMD: /opt/invsync/.venv/bin/python /opt/invsync/ingest_xxr_inventory.py --file /opt/invsync/Vendor_Files/Open Inventory & Blowouts (XXR) 3.5.26.xlsx --vendor-code XXR --vendor-name XXR - Primax --as-of-date 2026-03-06
+ Ingestion complete
+   Vendor: XXR (XXR - Primax)
+   File:   Open Inventory & Blowouts (XXR) 3.5.26.xlsx
+   Hash:   6deba168610ee42f8463bc07bf8464419441f2abc980d9af76b6ae1060186a63
+   as_of:  2026-03-06
+   Rows:   raw=539, normalized=532
+[2026-03-05T19:31:23Z] END XXR: Ingest XXR rc=0 seconds=2.00
+====================================================================================================
+
+====================================================================================================
+[2026-03-05T19:31:23Z] START Build Daily Final (MRW)
+CMD: /opt/invsync/.venv/bin/python /opt/invsync/build_inventory_daily_final.py --as-of-date 2026-03-06 --vendor-code MRW
+inventory_daily_final built successfully
+  scope: vendor=MRW
+  as_of_date: 2026-03-06
+  rows written this run (approx): 1642
+  total rows in inventory_daily_final for date: 1642
+[2026-03-05T19:31:24Z] END Build Daily Final (MRW) rc=0 seconds=0.94
+====================================================================================================
+
+====================================================================================================
+[2026-03-05T19:31:24Z] START Build Daily Final (LOF)
+CMD: /opt/invsync/.venv/bin/python /opt/invsync/build_inventory_daily_final.py --as-of-date 2026-03-06 --vendor-code LOF
+inventory_daily_final built successfully
+  scope: vendor=LOF
+  as_of_date: 2026-03-06
+  rows written this run (approx): 1223
+  total rows in inventory_daily_final for date: 2865
+[2026-03-05T19:31:24Z] END Build Daily Final (LOF) rc=0 seconds=0.83
+====================================================================================================
+
+====================================================================================================
+[2026-03-05T19:31:24Z] START Build Daily Final (XXR)
+CMD: /opt/invsync/.venv/bin/python /opt/invsync/build_inventory_daily_final.py --as-of-date 2026-03-06 --vendor-code XXR
+inventory_daily_final built successfully
+  scope: vendor=XXR
+  as_of_date: 2026-03-06
+  rows written this run (approx): 532
+  total rows in inventory_daily_final for date: 3397
+[2026-03-05T19:31:25Z] END Build Daily Final (XXR) rc=0 seconds=0.81
+====================================================================================================
+
+====================================================================================================
+[2026-03-05T19:31:25Z] START Build Woo Variation Map
+CMD: /opt/invsync/.venv/bin/python /opt/invsync/build_woo_variation_map.py --as-of-date 2026-03-06
+Mapping 152 SKUs using MySQL (no Woo API).
+MySQL batches: 1000 | PG commit batch: 500
+Mapping finished.
+Check unmapped:
+  SELECT sku, notes FROM invsync.woo_variation_map WHERE active = FALSE ORDER BY last_verified_at DESC LIMIT 50;
+[2026-03-05T19:31:27Z] END Build Woo Variation Map rc=0 seconds=1.59
+====================================================================================================
+
+====================================================================================================
+[2026-03-05T19:31:27Z] START Woo Stock Batch Update
+CMD: /opt/invsync/.venv/bin/python /opt/invsync/woo_variation_stock_batch_update.py --as-of-date 2026-03-06
+WCMLIM MySQL updater (ONLY ONE KEY)
+  as_of_date: 2026-03-06
+  wp_prefix:  wp_
+  meta_key:   wcmlim_stock_at_2096
+  rows:       3245
+  dry_run:    False
+  batch_size: 1000
+Committed batch: updated=255 inserted=0 (running updated=255, inserted=0)
+Committed batch: updated=133 inserted=0 (running updated=388, inserted=0)
+Committed batch: updated=202 inserted=0 (running updated=590, inserted=0)
+Committed batch: updated=17 inserted=0 (running updated=607, inserted=0)
+Done.
+Total updated:  607
+Total inserted: 0
+[2026-03-05T19:31:34Z] END Woo Stock Batch Update rc=0 seconds=7.03
+====================================================================================================
+
+[2026-03-05T19:31:34Z] InvSync Runner END ok=8 failed=0 total_seconds=18.12
+
+####################################################################################################
+[2026-03-09T19:01:10Z] InvSync Runner START
+mode=full as_of_date=2026-03-06
+vendor_dir=/opt/invsync/Vendor_Files
+only=['ROH', 'XXR']
+####################################################################################################
+
+====================================================================================================
+[2026-03-09T19:01:10Z] START ROH: Ingest Rohana
+CMD: /opt/invsync/.venv/bin/python /opt/invsync/ingest_roh_inventory.py --file /opt/invsync/Vendor_Files/Rohana Inventory 03-06-2026.xlsx --vendor-code ROH --vendor-name Rohana --as-of-date 2026-03-06
+/opt/invsync/ingest_roh_inventory.py:31: SyntaxWarning: invalid escape sequence '\I'
+  --file "D:\app\InvSync\Vendor_Files\Rohana Inventory 01-30-2026.xlsx" `
+Ingestion complete
+  Vendor: ROH (Rohana)
+  File:   Rohana Inventory 03-06-2026.xlsx
+  Hash:   25031b3e6b83db271bebd7df84448356c7a95a40ab5aa442fe5d55a6a2e1d65f
+  as_of:  2026-03-06
+  Rows:   raw=1552, normalized=1466
+  Header row detected (0-based): 3
+[2026-03-09T19:01:14Z] END ROH: Ingest Rohana rc=0 seconds=3.90
+====================================================================================================
+
+====================================================================================================
+[2026-03-09T19:01:14Z] START XXR: Ingest XXR
+CMD: /opt/invsync/.venv/bin/python /opt/invsync/ingest_xxr_inventory.py --file /opt/invsync/Vendor_Files/Open Inventory & Blowouts (XXR) 3-9-26.xlsx --vendor-code XXR --vendor-name XXR - Primax --as-of-date 2026-03-06
+ Ingestion complete
+   Vendor: XXR (XXR - Primax)
+   File:   Open Inventory & Blowouts (XXR) 3-9-26.xlsx
+   Hash:   cc7d130c29b3d5b5e898b6ffddd59d172d6c06066857669749274afba11c04f4
+   as_of:  2026-03-06
+   Rows:   raw=539, normalized=532
+[2026-03-09T19:01:17Z] END XXR: Ingest XXR rc=0 seconds=2.77
+====================================================================================================
+
+====================================================================================================
+[2026-03-09T19:01:17Z] START Build Daily Final (ROH)
+CMD: /opt/invsync/.venv/bin/python /opt/invsync/build_inventory_daily_final.py --as-of-date 2026-03-06 --vendor-code ROH
+inventory_daily_final built successfully
+  scope: vendor=ROH
+  as_of_date: 2026-03-06
+  rows written this run (approx): 1466
+  total rows in inventory_daily_final for date: 4863
+[2026-03-09T19:01:18Z] END Build Daily Final (ROH) rc=0 seconds=1.00
+====================================================================================================
+
+====================================================================================================
+[2026-03-09T19:01:18Z] START Build Daily Final (XXR)
+CMD: /opt/invsync/.venv/bin/python /opt/invsync/build_inventory_daily_final.py --as-of-date 2026-03-06 --vendor-code XXR
+inventory_daily_final built successfully
+  scope: vendor=XXR
+  as_of_date: 2026-03-06
+  rows written this run (approx): 532
+  total rows in inventory_daily_final for date: 4863
+[2026-03-09T19:01:19Z] END Build Daily Final (XXR) rc=0 seconds=0.85
+====================================================================================================
+
+====================================================================================================
+[2026-03-09T19:01:19Z] START Build Woo Variation Map
+CMD: /opt/invsync/.venv/bin/python /opt/invsync/build_woo_variation_map.py --as-of-date 2026-03-06
+Mapping 155 SKUs using MySQL (no Woo API).
+MySQL batches: 1000 | PG commit batch: 500
+Mapping finished.
+Check unmapped:
+  SELECT sku, notes FROM invsync.woo_variation_map WHERE active = FALSE ORDER BY last_verified_at DESC LIMIT 50;
+[2026-03-09T19:01:24Z] END Build Woo Variation Map rc=0 seconds=4.87
+====================================================================================================
+
+====================================================================================================
+[2026-03-09T19:01:24Z] START Woo Stock Batch Update
+CMD: /opt/invsync/.venv/bin/python /opt/invsync/woo_variation_stock_batch_update.py --as-of-date 2026-03-06
+WCMLIM MySQL updater (ONLY ONE KEY)
+  as_of_date: 2026-03-06
+  wp_prefix:  wp_
+  meta_key:   wcmlim_stock_at_2096
+  rows:       4708
+  dry_run:    False
+  batch_size: 1000
+Committed batch: updated=217 inserted=0 (running updated=217, inserted=0)
+Committed batch: updated=615 inserted=0 (running updated=832, inserted=0)
+Committed batch: updated=762 inserted=0 (running updated=1594, inserted=0)
+Committed batch: updated=138 inserted=0 (running updated=1732, inserted=0)
+Committed batch: updated=132 inserted=0 (running updated=1864, inserted=0)
+Done.
+Total updated:  1864
+Total inserted: 0
+[2026-03-09T19:01:49Z] END Woo Stock Batch Update rc=0 seconds=25.27
+====================================================================================================
+
+[2026-03-09T19:01:49Z] InvSync Runner END ok=6 failed=0 total_seconds=38.67

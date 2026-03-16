@@ -1,0 +1,425 @@
+
+####################################################################################################
+[2026-02-05T19:03:13Z] InvSync Runner START
+mode=full as_of_date=2026-02-06
+vendor_dir=D:\app\InvSync\Vendor_Files
+only=None
+####################################################################################################
+
+====================================================================================================
+[2026-02-05T19:03:13Z] START MRW: Ingest MRW
+CMD: C:\Python313\python.exe D:\app\InvSync\ingest_mrw_inventory.py --file D:\app\InvSync\Vendor_Files\MRW Inventory Report_2-5-2026.xlsx --vendor-code MRW --vendor-name Method Race Wheels --as-of-date 2026-02-06
+ Ingestion complete
+   Vendor: MRW (vendor_id inserted/updated)
+   File:   MRW Inventory Report_2-5-2026.xlsx
+   Hash:   1d38da9287e254b843455d2b9c20f50a7728225515fc00b132252083492f70cf
+   as_of:  2026-02-06
+   Rows:   raw=1646, normalized=1646
+[2026-02-05T19:03:24Z] END MRW: Ingest MRW rc=0 seconds=11.61
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T19:03:24Z] START VOS: Ingest Vossen
+CMD: C:\Python313\python.exe D:\app\InvSync\ingest_vos_inventory.py --url http://inventory.vossenwheels.com/sdtireandwheel.aspx --vendor-code VOS --vendor-name Vossen Wheels --as-of-date 2026-02-06 --timeout 300
+ Exported Excel
+   URL:   http://inventory.vossenwheels.com/sdtireandwheel.aspx
+   Excel: vossen_inventory_2026-02-06.xlsx
+   Rows:  3485
+   Cols:  ['SKU', 'Description', 'Available', 'Price', 'Diameter', 'Width', 'Offset', 'BoltPattern', 'Centerbore']
+ Ingestion complete
+   Vendor: VOS
+   Excel:  vossen_inventory_2026-02-06.xlsx
+   Hash:   940a7909305899d234da31adb81fd7ee05be594de4fd013ff2b6bf6633160b15
+   as_of:  2026-02-06
+   Rows:   raw=3485, normalized=3485
+[2026-02-05T19:03:46Z] END VOS: Ingest Vossen rc=0 seconds=22.04
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T19:03:46Z] START FER: Ingest Ferrada
+CMD: C:\Python313\python.exe D:\app\InvSync\ingest_fer_inventory.py --sheet-id 1tubAbOzd-KSuJxr-9xQ1PjZKq6QPtrYCG6Qw_fg7EAM --vendor-code FER --vendor-name Ferrada --as-of-date 2026-02-06 --timeout 300
+  Downloading Google Sheet as XLSX...
+ Building merged workbook (all tabs + ALL_TABS)...
+ Workbook ready
+   Downloaded: ferrada_gsheet_2026-02-06.xlsx
+   Merged:     ferrada_merged_2026-02-06.xlsx
+   Tabs:       ['DC Series', 'CM Series', 'FR5-FR8', 'FR9-FR12 - New Inventory Arrivi', 'FTR Series', 'FT Series']
+   ALL_TABS rows: 3007
+ Ingesting into Postgres...
+ Ingestion complete
+   Vendor: FER
+   File:   ferrada_merged_2026-02-06.xlsx
+   Hash:   65d053359b7b2476ad957e5ccc3feba8b31caae7445543b573046c5363dfdc7c
+   as_of:  2026-02-06
+   Rows:   raw=3007, normalized=3007
+[2026-02-05T19:04:13Z] END FER: Ingest Ferrada rc=0 seconds=27.15
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T19:04:13Z] START LOF: Ingest Lock Off-Road
+CMD: C:\Python313\python.exe D:\app\InvSync\ingest_lor_inventory.py --file D:\app\InvSync\Vendor_Files\LockOffroadWheelsInventory.xlsx --vendor-code LOF --vendor-name Lock Off-Road --as-of-date 2026-02-06
+D:\app\InvSync\ingest_lor_inventory.py:6: SyntaxWarning: invalid escape sequence '\I'
+  D:\app\InvSync\Vendor_Files\LockOffroadWheelsInventory.xlsx
+ Ingestion complete
+   Vendor: LOF (Lock Off-Road)
+   File:   LockOffroadWheelsInventory.xlsx
+   Hash:   46442cfb0f2b63dbae3277ea7be94a5c34d6ccb1d29a3501c5510fa86dc46c30
+   as_of:  2026-02-06
+   Rows:   raw=1223, normalized=1223
+[2026-02-05T19:04:25Z] END LOF: Ingest Lock Off-Road rc=0 seconds=11.44
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T19:04:25Z] START ROH: Ingest Rohana
+CMD: C:\Python313\python.exe D:\app\InvSync\ingest_roh_inventory.py --file D:\app\InvSync\Vendor_Files\Rohana Inventory 01-30-2026.xlsx --vendor-code ROH --vendor-name Rohana --as-of-date 2026-02-06
+D:\app\InvSync\ingest_roh_inventory.py:6: SyntaxWarning: invalid escape sequence '\I'
+  D:\app\InvSync\Vendor_Files\Rohana Inventory 01-16-2026.xlsx
+ Ingestion complete
+   Vendor: ROH (Rohana)
+   File:   Rohana Inventory 01-30-2026.xlsx
+   Hash:   223db98ddeb3940dcd10e47f5327e90150f15e33a05e0a82d59e8cf66b2595cf
+   as_of:  2026-02-06
+   Rows:   raw=1564, normalized=1478
+[2026-02-05T19:04:41Z] END ROH: Ingest Rohana rc=0 seconds=15.67
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T19:04:41Z] START XXR: Ingest XXR
+CMD: C:\Python313\python.exe D:\app\InvSync\ingest_xxr_inventory.py --file D:\app\InvSync\Vendor_Files\Open Inventory & Blowouts (XXR) 2.2.26.xlsx --vendor-code XXR --vendor-name XXR - Primax --as-of-date 2026-02-06
+ Ingestion complete
+   Vendor: XXR (XXR - Primax)
+   File:   Open Inventory & Blowouts (XXR) 2.2.26.xlsx
+   Hash:   d33e3437002d4858d95c793e71782347f209bdf7a75385ae4b04bd0f5ea8495f
+   as_of:  2026-02-06
+   Rows:   raw=535, normalized=528
+[2026-02-05T19:05:00Z] END XXR: Ingest XXR rc=0 seconds=19.56
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T19:05:00Z] START Build Daily Final (MRW)
+CMD: C:\Python313\python.exe D:\app\InvSync\build_inventory_daily_final.py --as-of-date 2026-02-06 --vendor-code MRW
+Traceback (most recent call last):
+  File "D:\app\InvSync\build_inventory_daily_final.py", line 150, in <module>
+    main()
+    ~~~~^^
+  File "D:\app\InvSync\build_inventory_daily_final.py", line 142, in main
+    print("\u2705 inventory_daily_final built successfully")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 0: character maps to <undefined>
+[2026-02-05T19:05:07Z] END Build Daily Final (MRW) rc=1 seconds=6.55
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T19:05:07Z] START Build Daily Final (VOS)
+CMD: C:\Python313\python.exe D:\app\InvSync\build_inventory_daily_final.py --as-of-date 2026-02-06 --vendor-code VOS
+Traceback (most recent call last):
+  File "D:\app\InvSync\build_inventory_daily_final.py", line 150, in <module>
+    main()
+    ~~~~^^
+  File "D:\app\InvSync\build_inventory_daily_final.py", line 142, in main
+    print("\u2705 inventory_daily_final built successfully")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 0: character maps to <undefined>
+[2026-02-05T19:05:18Z] END Build Daily Final (VOS) rc=1 seconds=10.94
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T19:05:18Z] START Build Daily Final (FER)
+CMD: C:\Python313\python.exe D:\app\InvSync\build_inventory_daily_final.py --as-of-date 2026-02-06 --vendor-code FER
+Traceback (most recent call last):
+  File "D:\app\InvSync\build_inventory_daily_final.py", line 150, in <module>
+    main()
+    ~~~~^^
+  File "D:\app\InvSync\build_inventory_daily_final.py", line 142, in main
+    print("\u2705 inventory_daily_final built successfully")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 0: character maps to <undefined>
+[2026-02-05T19:05:30Z] END Build Daily Final (FER) rc=1 seconds=12.61
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T19:05:30Z] START Build Daily Final (LOF)
+CMD: C:\Python313\python.exe D:\app\InvSync\build_inventory_daily_final.py --as-of-date 2026-02-06 --vendor-code LOF
+Traceback (most recent call last):
+  File "D:\app\InvSync\build_inventory_daily_final.py", line 150, in <module>
+    main()
+    ~~~~^^
+  File "D:\app\InvSync\build_inventory_daily_final.py", line 142, in main
+    print("\u2705 inventory_daily_final built successfully")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 0: character maps to <undefined>
+[2026-02-05T19:05:37Z] END Build Daily Final (LOF) rc=1 seconds=6.44
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T19:05:37Z] START Build Daily Final (ROH)
+CMD: C:\Python313\python.exe D:\app\InvSync\build_inventory_daily_final.py --as-of-date 2026-02-06 --vendor-code ROH
+Traceback (most recent call last):
+  File "D:\app\InvSync\build_inventory_daily_final.py", line 150, in <module>
+    main()
+    ~~~~^^
+  File "D:\app\InvSync\build_inventory_daily_final.py", line 142, in main
+    print("\u2705 inventory_daily_final built successfully")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 0: character maps to <undefined>
+[2026-02-05T19:05:41Z] END Build Daily Final (ROH) rc=1 seconds=4.72
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T19:05:41Z] START Build Daily Final (XXR)
+CMD: C:\Python313\python.exe D:\app\InvSync\build_inventory_daily_final.py --as-of-date 2026-02-06 --vendor-code XXR
+Traceback (most recent call last):
+  File "D:\app\InvSync\build_inventory_daily_final.py", line 150, in <module>
+    main()
+    ~~~~^^
+  File "D:\app\InvSync\build_inventory_daily_final.py", line 142, in main
+    print("\u2705 inventory_daily_final built successfully")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 0: character maps to <undefined>
+[2026-02-05T19:05:49Z] END Build Daily Final (XXR) rc=1 seconds=8.05
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T19:05:49Z] START Build Woo Variation Map
+CMD: C:\Python313\python.exe D:\app\InvSync\build_woo_variation_map.py --as-of-date 2026-02-06
+
+####################################################################################################
+[2026-02-05T19:11:18Z] InvSync Runner START
+mode=full as_of_date=2026-02-06
+vendor_dir=D:\app\InvSync\Vendor_Files
+only=None
+####################################################################################################
+
+====================================================================================================
+[2026-02-05T19:11:18Z] START MRW: Ingest MRW
+CMD: C:\Python313\python.exe D:\app\InvSync\ingest_mrw_inventory.py --file D:\app\InvSync\Vendor_Files\MRW Inventory Report_2-5-2026.xlsx --vendor-code MRW --vendor-name Method Race Wheels --as-of-date 2026-02-06
+ Ingestion complete
+   Vendor: MRW (vendor_id inserted/updated)
+   File:   MRW Inventory Report_2-5-2026.xlsx
+   Hash:   1d38da9287e254b843455d2b9c20f50a7728225515fc00b132252083492f70cf
+   as_of:  2026-02-06
+   Rows:   raw=1646, normalized=1646
+[2026-02-05T19:11:28Z] END MRW: Ingest MRW rc=0 seconds=9.87
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T19:11:28Z] START VOS: Ingest Vossen
+CMD: C:\Python313\python.exe D:\app\InvSync\ingest_vos_inventory.py --url http://inventory.vossenwheels.com/sdtireandwheel.aspx --vendor-code VOS --vendor-name Vossen Wheels --as-of-date 2026-02-06 --timeout 300
+ Exported Excel
+   URL:   http://inventory.vossenwheels.com/sdtireandwheel.aspx
+   Excel: vossen_inventory_2026-02-06.xlsx
+   Rows:  3485
+   Cols:  ['SKU', 'Description', 'Available', 'Price', 'Diameter', 'Width', 'Offset', 'BoltPattern', 'Centerbore']
+ Ingestion complete
+   Vendor: VOS
+   Excel:  vossen_inventory_2026-02-06.xlsx
+   Hash:   a672ecb0ea5235fcb6611d0456de1c65bbfa791451d7d1a3aca420e184adb2ed
+   as_of:  2026-02-06
+   Rows:   raw=3485, normalized=3485
+[2026-02-05T19:11:50Z] END VOS: Ingest Vossen rc=0 seconds=22.61
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T19:11:50Z] START FER: Ingest Ferrada
+CMD: C:\Python313\python.exe D:\app\InvSync\ingest_fer_inventory.py --sheet-id 1tubAbOzd-KSuJxr-9xQ1PjZKq6QPtrYCG6Qw_fg7EAM --vendor-code FER --vendor-name Ferrada --as-of-date 2026-02-06 --timeout 300
+  Downloading Google Sheet as XLSX...
+ Building merged workbook (all tabs + ALL_TABS)...
+ Workbook ready
+   Downloaded: ferrada_gsheet_2026-02-06.xlsx
+   Merged:     ferrada_merged_2026-02-06.xlsx
+   Tabs:       ['DC Series', 'CM Series', 'FR5-FR8', 'FR9-FR12 - New Inventory Arrivi', 'FTR Series', 'FT Series']
+   ALL_TABS rows: 3007
+ Ingesting into Postgres...
+ Ingestion complete
+   Vendor: FER
+   File:   ferrada_merged_2026-02-06.xlsx
+   Hash:   403b8f75ca2d194e7b03c3badd946a27cc475220157f17ffe1bf421a0018475d
+   as_of:  2026-02-06
+   Rows:   raw=3007, normalized=3007
+[2026-02-05T19:12:20Z] END FER: Ingest Ferrada rc=0 seconds=29.73
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T19:12:20Z] START LOF: Ingest Lock Off-Road
+CMD: C:\Python313\python.exe D:\app\InvSync\ingest_lor_inventory.py --file D:\app\InvSync\Vendor_Files\LockOffroadWheelsInventory.xlsx --vendor-code LOF --vendor-name Lock Off-Road --as-of-date 2026-02-06
+D:\app\InvSync\ingest_lor_inventory.py:6: SyntaxWarning: invalid escape sequence '\I'
+  D:\app\InvSync\Vendor_Files\LockOffroadWheelsInventory.xlsx
+ Ingestion complete
+   Vendor: LOF (Lock Off-Road)
+   File:   LockOffroadWheelsInventory.xlsx
+   Hash:   46442cfb0f2b63dbae3277ea7be94a5c34d6ccb1d29a3501c5510fa86dc46c30
+   as_of:  2026-02-06
+   Rows:   raw=1223, normalized=1223
+[2026-02-05T19:12:31Z] END LOF: Ingest Lock Off-Road rc=0 seconds=11.15
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T19:12:31Z] START ROH: Ingest Rohana
+CMD: C:\Python313\python.exe D:\app\InvSync\ingest_roh_inventory.py --file D:\app\InvSync\Vendor_Files\Rohana Inventory 01-30-2026.xlsx --vendor-code ROH --vendor-name Rohana --as-of-date 2026-02-06
+D:\app\InvSync\ingest_roh_inventory.py:6: SyntaxWarning: invalid escape sequence '\I'
+  D:\app\InvSync\Vendor_Files\Rohana Inventory 01-16-2026.xlsx
+ Ingestion complete
+   Vendor: ROH (Rohana)
+   File:   Rohana Inventory 01-30-2026.xlsx
+   Hash:   223db98ddeb3940dcd10e47f5327e90150f15e33a05e0a82d59e8cf66b2595cf
+   as_of:  2026-02-06
+   Rows:   raw=1564, normalized=1478
+[2026-02-05T19:12:51Z] END ROH: Ingest Rohana rc=0 seconds=19.39
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T19:12:51Z] START XXR: Ingest XXR
+CMD: C:\Python313\python.exe D:\app\InvSync\ingest_xxr_inventory.py --file D:\app\InvSync\Vendor_Files\Open Inventory & Blowouts (XXR) 2.2.26.xlsx --vendor-code XXR --vendor-name XXR - Primax --as-of-date 2026-02-06
+ Ingestion complete
+   Vendor: XXR (XXR - Primax)
+   File:   Open Inventory & Blowouts (XXR) 2.2.26.xlsx
+   Hash:   d33e3437002d4858d95c793e71782347f209bdf7a75385ae4b04bd0f5ea8495f
+   as_of:  2026-02-06
+   Rows:   raw=535, normalized=528
+[2026-02-05T19:13:02Z] END XXR: Ingest XXR rc=0 seconds=11.42
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T19:13:02Z] START Build Daily Final (MRW)
+CMD: C:\Python313\python.exe D:\app\InvSync\build_inventory_daily_final.py --as-of-date 2026-02-06 --vendor-code MRW
+ inventory_daily_final built successfully
+   Vendor: MRW (Method Race Wheels, vendor_id=1)
+   as_of_date: 2026-02-06
+   rows written this run (approx): 0
+   total rows in inventory_daily_final for date: 6492
+[2026-02-05T19:13:09Z] END Build Daily Final (MRW) rc=0 seconds=6.35
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T19:13:09Z] START Build Daily Final (VOS)
+CMD: C:\Python313\python.exe D:\app\InvSync\build_inventory_daily_final.py --as-of-date 2026-02-06 --vendor-code VOS
+ inventory_daily_final built successfully
+   Vendor: VOS (Vossen Wheels, vendor_id=4)
+   as_of_date: 2026-02-06
+   rows written this run (approx): 3485
+   total rows in inventory_daily_final for date: 6492
+[2026-02-05T19:13:18Z] END Build Daily Final (VOS) rc=0 seconds=9.57
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T19:13:18Z] START Build Daily Final (FER)
+CMD: C:\Python313\python.exe D:\app\InvSync\build_inventory_daily_final.py --as-of-date 2026-02-06 --vendor-code FER
+ inventory_daily_final built successfully
+   Vendor: FER (Ferrada, vendor_id=5)
+   as_of_date: 2026-02-06
+   rows written this run (approx): 3007
+   total rows in inventory_daily_final for date: 6492
+[2026-02-05T19:13:28Z] END Build Daily Final (FER) rc=0 seconds=10.11
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T19:13:28Z] START Build Daily Final (LOF)
+CMD: C:\Python313\python.exe D:\app\InvSync\build_inventory_daily_final.py --as-of-date 2026-02-06 --vendor-code LOF
+ inventory_daily_final built successfully
+   Vendor: LOF (Lock Off-Road, vendor_id=6)
+   as_of_date: 2026-02-06
+   rows written this run (approx): 0
+   total rows in inventory_daily_final for date: 6492
+[2026-02-05T19:13:37Z] END Build Daily Final (LOF) rc=0 seconds=8.32
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T19:13:37Z] START Build Daily Final (ROH)
+CMD: C:\Python313\python.exe D:\app\InvSync\build_inventory_daily_final.py --as-of-date 2026-02-06 --vendor-code ROH
+ inventory_daily_final built successfully
+   Vendor: ROH (Rohana, vendor_id=7)
+   as_of_date: 2026-02-06
+   rows written this run (approx): 0
+   total rows in inventory_daily_final for date: 6492
+[2026-02-05T19:13:43Z] END Build Daily Final (ROH) rc=0 seconds=6.08
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T19:13:43Z] START Build Daily Final (XXR)
+CMD: C:\Python313\python.exe D:\app\InvSync\build_inventory_daily_final.py --as-of-date 2026-02-06 --vendor-code XXR
+ inventory_daily_final built successfully
+   Vendor: XXR (XXR - Primax, vendor_id=9)
+   as_of_date: 2026-02-06
+   rows written this run (approx): 0
+   total rows in inventory_daily_final for date: 6492
+[2026-02-05T19:13:47Z] END Build Daily Final (XXR) rc=0 seconds=4.18
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T19:13:47Z] START Build Woo Variation Map
+CMD: C:\Python313\python.exe D:\app\InvSync\build_woo_variation_map.py --as-of-date 2026-02-06
+Mapping 6492 SKUs with workers=5
+Woo API: https://staging2.sdtwdirectwholesale.com/wp-json/wc/v3
+  committed 200/6492
+  committed 400/6492
+  committed 600/6492
+  committed 800/6492
+  committed 1000/6492
+  committed 1200/6492
+  committed 1400/6492
+  committed 1600/6492
+  committed 1800/6492
+  committed 2000/6492
+  committed 2200/6492
+  committed 2400/6492
+  committed 2600/6492
+  committed 2800/6492
+  committed 3000/6492
+  committed 3200/6492
+  committed 3400/6492
+  committed 3600/6492
+  committed 3800/6492
+  committed 4000/6492
+  committed 4200/6492
+  committed 4400/6492
+  committed 4600/6492
+  committed 4800/6492
+  committed 5000/6492
+  committed 5200/6492
+  committed 5400/6492
+  committed 5600/6492
+  committed 5800/6492
+  committed 6000/6492
+  committed 6200/6492
+  committed 6400/6492
+ Mapping finished.
+Run this to see unmapped:
+  SELECT sku, notes FROM invsync.woo_variation_map WHERE active = FALSE ORDER BY last_verified_at DESC LIMIT 50;
+[2026-02-05T20:51:55Z] END Build Woo Variation Map rc=0 seconds=5887.74
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T20:51:55Z] START Woo Stock Batch Update
+CMD: C:\Python313\python.exe D:\app\InvSync\woo_variation_stock_batch_update.py --as-of-date 2026-02-06
+ Run created: 3f1ec642-b112-444e-b1d1-198cc4781c54
+   as_of_date: 2026-02-06
+   total mapped candidates: 0
+   queued to update (changed-only): 0
+   skipped unchanged: 0
+   unmapped (not found on site): 6492
+   Woo API: https://staging2.sdtwdirectwholesale.com/wp-json/wc/v3
+   batch_size: 50
+   WCMLIM enabled: True | location_id: 2096 | update_core_stock: True
+ Nothing to update (all SKUs unchanged or none mapped).
+[2026-02-05T20:52:02Z] END Woo Stock Batch Update rc=0 seconds=7.94
+====================================================================================================
+
+[2026-02-05T20:52:02Z] InvSync Runner END ok=14 failed=0 total_seconds=6044.47

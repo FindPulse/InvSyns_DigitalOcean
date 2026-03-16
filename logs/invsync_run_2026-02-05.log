@@ -1,0 +1,243 @@
+
+##########################################################################################
+[2026-02-05T17:59:46Z] InvSync Runner START
+mode=full as_of_date=2026-02-05 vendor_dir=D:\app\InvSync\Vendor_Files
+only=None
+##########################################################################################
+
+####################################################################################################
+[2026-02-05T18:20:10Z] InvSync Runner START
+mode=full as_of_date=2026-02-05
+vendor_dir=D:\app\InvSync\Vendor_Files
+only=None
+####################################################################################################
+
+====================================================================================================
+[2026-02-05T18:20:10Z] START MRW: Ingest MRW
+CMD: C:\Python313\python.exe D:\app\InvSync\ingest_mrw_inventory.py --file D:\app\InvSync\Vendor_Files\MRW Inventory Report_2-5-2026.xlsx --vendor-code MRW --vendor-name Method Race Wheels --as-of-date 2026-02-05
+Traceback (most recent call last):
+  File "D:\app\InvSync\ingest_mrw_inventory.py", line 285, in <module>
+    main()
+    ~~~~^^
+  File "D:\app\InvSync\ingest_mrw_inventory.py", line 276, in main
+    print("\u2705 Ingestion complete")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 0: character maps to <undefined>
+[2026-02-05T18:20:59Z] END MRW: Ingest MRW rc=1 seconds=48.88
+====================================================================================================
+
+[2026-02-05T18:20:59Z] InvSync Runner END ok=0 failed=1 total_seconds=48.88
+
+####################################################################################################
+[2026-02-05T18:33:00Z] InvSync Runner START
+mode=full as_of_date=2026-02-05
+vendor_dir=D:\app\InvSync\Vendor_Files
+only=None
+####################################################################################################
+
+====================================================================================================
+[2026-02-05T18:33:00Z] START MRW: Ingest MRW
+CMD: C:\Python313\python.exe D:\app\InvSync\ingest_mrw_inventory.py --file D:\app\InvSync\Vendor_Files\MRW Inventory Report_2-5-2026.xlsx --vendor-code MRW --vendor-name Method Race Wheels --as-of-date 2026-02-05
+ Ingestion complete
+   Vendor: MRW (vendor_id inserted/updated)
+   File:   MRW Inventory Report_2-5-2026.xlsx
+   Hash:   1d38da9287e254b843455d2b9c20f50a7728225515fc00b132252083492f70cf
+   as_of:  2026-02-05
+   Rows:   raw=1646, normalized=1646
+[2026-02-05T18:33:18Z] END MRW: Ingest MRW rc=0 seconds=18.29
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T18:33:18Z] START VOS: Ingest Vossen
+CMD: C:\Python313\python.exe D:\app\InvSync\ingest_vos_inventory.py --url http://inventory.vossenwheels.com/sdtireandwheel.aspx --vendor-code VOS --vendor-name Vossen Wheels --as-of-date 2026-02-05
+Traceback (most recent call last):
+  File "C:\Users\HP\AppData\Roaming\Python\Python313\site-packages\urllib3\response.py", line 779, in _error_catcher
+    yield
+  File "C:\Users\HP\AppData\Roaming\Python\Python313\site-packages\urllib3\response.py", line 904, in _raw_read
+    data = self._fp_read(amt, read1=read1) if not fp_closed else b""
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\AppData\Roaming\Python\Python313\site-packages\urllib3\response.py", line 887, in _fp_read
+    return self._fp.read(amt) if amt is not None else self._fp.read()
+           ~~~~~~~~~~~~~^^^^^
+  File "C:\Python313\Lib\http\client.py", line 479, in read
+    s = self.fp.read(amt)
+  File "C:\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\HP\AppData\Roaming\Python\Python313\site-packages\requests\models.py", line 820, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "C:\Users\HP\AppData\Roaming\Python\Python313\site-packages\urllib3\response.py", line 1091, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "C:\Users\HP\AppData\Roaming\Python\Python313\site-packages\urllib3\response.py", line 980, in read
+    data = self._raw_read(amt)
+  File "C:\Users\HP\AppData\Roaming\Python\Python313\site-packages\urllib3\response.py", line 903, in _raw_read
+    with self._error_catcher():
+         ~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\HP\AppData\Roaming\Python\Python313\site-packages\urllib3\response.py", line 784, in _error_catcher
+    raise ReadTimeoutError(self._pool, None, "Read timed out.") from e  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='inventory.vossenwheels.com', port=80): Read timed out.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\app\InvSync\ingest_vos_inventory.py", line 365, in <module>
+    main()
+    ~~~~^^
+  File "D:\app\InvSync\ingest_vos_inventory.py", line 247, in main
+    text = fetch_text(args.url, timeout=args.timeout, verify_ssl=args.verify_ssl, user_agent=args.user_agent)
+  File "D:\app\InvSync\ingest_vos_inventory.py", line 151, in fetch_text
+    r = requests.get(url, headers=headers, timeout=timeout, verify=verify_ssl)
+  File "C:\Users\HP\AppData\Roaming\Python\Python313\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "C:\Users\HP\AppData\Roaming\Python\Python313\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\AppData\Roaming\Python\Python313\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\HP\AppData\Roaming\Python\Python313\site-packages\requests\sessions.py", line 746, in send
+    r.content
+  File "C:\Users\HP\AppData\Roaming\Python\Python313\site-packages\requests\models.py", line 902, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\AppData\Roaming\Python\Python313\site-packages\requests\models.py", line 826, in generate
+    raise ConnectionError(e)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='inventory.vossenwheels.com', port=80): Read timed out.
+[2026-02-05T18:35:08Z] END VOS: Ingest Vossen rc=1 seconds=109.74
+====================================================================================================
+
+[2026-02-05T18:35:08Z] InvSync Runner END ok=1 failed=1 total_seconds=128.03
+
+####################################################################################################
+[2026-02-05T18:42:10Z] InvSync Runner START
+mode=full as_of_date=2026-02-05
+vendor_dir=D:\app\InvSync\Vendor_Files
+only=None
+####################################################################################################
+
+====================================================================================================
+[2026-02-05T18:42:10Z] START MRW: Ingest MRW
+CMD: C:\Python313\python.exe D:\app\InvSync\ingest_mrw_inventory.py --file D:\app\InvSync\Vendor_Files\MRW Inventory Report_2-5-2026.xlsx --vendor-code MRW --vendor-name Method Race Wheels --as-of-date 2026-02-05
+ Ingestion complete
+   Vendor: MRW (vendor_id inserted/updated)
+   File:   MRW Inventory Report_2-5-2026.xlsx
+   Hash:   1d38da9287e254b843455d2b9c20f50a7728225515fc00b132252083492f70cf
+   as_of:  2026-02-05
+   Rows:   raw=1646, normalized=1646
+[2026-02-05T18:42:22Z] END MRW: Ingest MRW rc=0 seconds=11.78
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T18:42:22Z] START VOS: Ingest Vossen
+CMD: C:\Python313\python.exe D:\app\InvSync\ingest_vos_inventory.py --url http://inventory.vossenwheels.com/sdtireandwheel.aspx --vendor-code VOS --vendor-name Vossen Wheels --as-of-date 2026-02-05 --timeout 300
+ Exported Excel
+   URL:   http://inventory.vossenwheels.com/sdtireandwheel.aspx
+   Excel: vossen_inventory_2026-02-05.xlsx
+   Rows:  3485
+   Cols:  ['SKU', 'Description', 'Available', 'Price', 'Diameter', 'Width', 'Offset', 'BoltPattern', 'Centerbore']
+ Ingestion complete
+   Vendor: VOS
+   Excel:  vossen_inventory_2026-02-05.xlsx
+   Hash:   ce61a0db24dddf64503e777a83486793c85db4c4cfc50c6422a031a9d911c5e7
+   as_of:  2026-02-05
+   Rows:   raw=3485, normalized=3485
+[2026-02-05T18:42:50Z] END VOS: Ingest Vossen rc=0 seconds=28.24
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T18:42:50Z] START FER: Ingest Ferrada
+CMD: C:\Python313\python.exe D:\app\InvSync\ingest_fer_inventory.py --sheet-id 1tubAbOzd-KSuJxr-9xQ1PjZKq6QPtrYCG6Qw_fg7EAM --vendor-code FER --vendor-name Ferrada --as-of-date 2026-02-05
+Traceback (most recent call last):
+  File "D:\app\InvSync\ingest_fer_inventory.py", line 378, in <module>
+    main()
+    ~~~~^^
+  File "D:\app\InvSync\ingest_fer_inventory.py", line 351, in main
+    print("\u2b07  Downloading Google Sheet as XLSX...")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2b07' in position 0: character maps to <undefined>
+[2026-02-05T18:42:52Z] END FER: Ingest Ferrada rc=1 seconds=1.96
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T18:42:52Z] START LOF: Ingest Lock Off-Road
+CMD: C:\Python313\python.exe D:\app\InvSync\ingest_lor_inventory.py --file D:\app\InvSync\Vendor_Files\LockOffroadWheelsInventory.xlsx --vendor-code LOF --vendor-name Lock Off-Road --as-of-date 2026-02-05
+D:\app\InvSync\ingest_lor_inventory.py:6: SyntaxWarning: invalid escape sequence '\I'
+  D:\app\InvSync\Vendor_Files\LockOffroadWheelsInventory.xlsx
+ Ingestion complete
+   Vendor: LOF (Lock Off-Road)
+   File:   LockOffroadWheelsInventory.xlsx
+   Hash:   46442cfb0f2b63dbae3277ea7be94a5c34d6ccb1d29a3501c5510fa86dc46c30
+   as_of:  2026-02-05
+   Rows:   raw=1223, normalized=1223
+[2026-02-05T18:43:07Z] END LOF: Ingest Lock Off-Road rc=0 seconds=14.67
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T18:43:07Z] START ROH: Ingest Rohana
+CMD: C:\Python313\python.exe D:\app\InvSync\ingest_roh_inventory.py --file D:\app\InvSync\Vendor_Files\Rohana Inventory 01-30-2026.xlsx --vendor-code ROH --vendor-name Rohana --as-of-date 2026-02-05
+D:\app\InvSync\ingest_roh_inventory.py:6: SyntaxWarning: invalid escape sequence '\I'
+  D:\app\InvSync\Vendor_Files\Rohana Inventory 01-16-2026.xlsx
+ Ingestion complete
+   Vendor: ROH (Rohana)
+   File:   Rohana Inventory 01-30-2026.xlsx
+   Hash:   223db98ddeb3940dcd10e47f5327e90150f15e33a05e0a82d59e8cf66b2595cf
+   as_of:  2026-02-05
+   Rows:   raw=1564, normalized=1478
+[2026-02-05T18:43:25Z] END ROH: Ingest Rohana rc=0 seconds=18.15
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T18:43:25Z] START XXR: Ingest XXR
+CMD: C:\Python313\python.exe D:\app\InvSync\ingest_xxr_inventory.py --file D:\app\InvSync\Vendor_Files\Open Inventory & Blowouts (XXR) 2.2.26.xlsx --vendor-code XXR --vendor-name XXR - Primax --as-of-date 2026-02-05
+ Ingestion complete
+   Vendor: XXR (XXR - Primax)
+   File:   Open Inventory & Blowouts (XXR) 2.2.26.xlsx
+   Hash:   d33e3437002d4858d95c793e71782347f209bdf7a75385ae4b04bd0f5ea8495f
+   as_of:  2026-02-05
+   Rows:   raw=535, normalized=528
+[2026-02-05T18:43:41Z] END XXR: Ingest XXR rc=0 seconds=16.43
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T18:43:41Z] START Build Daily Final
+CMD: C:\Python313\python.exe D:\app\InvSync\build_inventory_daily_final.py --as-of-date 2026-02-05
+usage: build_inventory_daily_final.py [-h] --as-of-date AS_OF_DATE
+                                      --vendor-code VENDOR_CODE
+build_inventory_daily_final.py: error: the following arguments are required: --vendor-code
+[2026-02-05T18:43:42Z] END Build Daily Final rc=2 seconds=0.31
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T18:43:42Z] START Build Woo Variation Map
+CMD: C:\Python313\python.exe D:\app\InvSync\build_woo_variation_map.py
+usage: build_woo_variation_map.py [-h] --as-of-date AS_OF_DATE [--limit LIMIT]
+                                  [--stale-days STALE_DAYS]
+                                  [--batch-commit BATCH_COMMIT]
+build_woo_variation_map.py: error: the following arguments are required: --as-of-date
+[2026-02-05T18:43:42Z] END Build Woo Variation Map rc=2 seconds=0.91
+====================================================================================================
+
+====================================================================================================
+[2026-02-05T18:43:42Z] START Woo Stock Batch Update
+CMD: C:\Python313\python.exe D:\app\InvSync\woo_variation_stock_batch_update.py
+usage: woo_variation_stock_batch_update.py [-h] --as-of-date AS_OF_DATE
+                                           [--limit LIMIT] [--dry-run]
+woo_variation_stock_batch_update.py: error: the following arguments are required: --as-of-date
+[2026-02-05T18:43:43Z] END Woo Stock Batch Update rc=2 seconds=0.84
+====================================================================================================
+
+[2026-02-05T18:43:43Z] InvSync Runner END ok=5 failed=4 total_seconds=93.27
